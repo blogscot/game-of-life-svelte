@@ -1,5 +1,5 @@
 <script>
-  import Grid from "./components/Grid.svelte";
+  import Game from "./components/Game.svelte";
 </script>
 
 <style>
@@ -7,5 +7,5 @@
 </style>
 
 <main>
-  <Grid />
+  <Game />
 </main>
