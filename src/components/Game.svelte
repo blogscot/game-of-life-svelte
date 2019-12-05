@@ -1,6 +1,5 @@
 <script>
   import { onMount } from "svelte";
-  import MediaQuery from "svelte-media-query";
   import Grid from "./Grid.svelte";
 
   let columns = 300;
@@ -102,23 +101,17 @@
     text-align: center;
     margin-bottom: 2em;
   }
+
+  @media screen and (max-width: 480px) {
+    main {
+      grid-template-columns: repeat(300, 1px);
+    }
+  }
 </style>
 
-<section>
+<section style="--size:{size}px; --columns:{columns};">
   <h1>Game of Life</h1>
-  <MediaQuery query="(max-width: 480px)" let:matches>
-    {#if matches}
-      <main style="--size:{1}px; --columns:{columns};">
-        <Grid {grid} />
-      </main>
-    {/if}
-  </MediaQuery>
-
-  <MediaQuery query="(min-width: 481px)" let:matches>
-    {#if matches}
-      <main style="--size:{size}px; --columns:{columns};">
-        <Grid {grid} />
-      </main>
-    {/if}
-  </MediaQuery>
+  <main>
+    <Grid {grid} />
+  </main>
 </section>
